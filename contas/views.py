@@ -6,6 +6,7 @@ from .form import TransacaoForm
 
 def home(request):
     data = {}
+    data['now'] = datetime.datetime.now()
     return render(request, 'contas/home.html', data)
 
 def listagem(request):
@@ -14,7 +15,12 @@ def listagem(request):
     return render(request, 'contas/listagem.html', data)
 
 def nova_transacao(request):
+    form = TransacaoForm(request.POST or None)
+    return render(request, 'contas/form.html', {'form': form})
+
+def update(request):
     data = {}
-    form = TransacaoForm()
+    transacao = Transacao.objects.filter(pk=pk)
+    form = TransacaoForm(request.POST or None, instance=transacao)
     data['form'] = form
     return render(request, 'contas/form.html', data)

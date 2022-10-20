@@ -9,13 +9,13 @@
 </head>
 <body>
     <ul>
-    {% for transacao in transacoes%}
-        {% if transacao.descricao == "whatever" %}
-            <li><b>{{transacao.descricao}}</b></li>
-        {% else %}
-            <li>{{transacao.descricao}}</li>
-        {% endif %}
-    {% endfor %}
+        {% for transacao in transacoes %}
+            {% if transacao.descricao == "whatever" %}
+                <li><b>{{transacao.descricao}}</b></li>
+            {% else %}
+                <li>{{transacao.descricao}}</li>
+            {% endif %}
+        {% endfor %}
     </ul>
 </body>
 </html>
